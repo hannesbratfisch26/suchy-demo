@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>SUCHY — Sondermaschinenbau für technische Textilien</title>
+<meta name="description" content="Designstudie: Suchy Textilmaschinenbau GmbH, Korbußen. Sonder- und Einzelanfertigung für die Be- und Verarbeitung technischer Textilien.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080A; --bg2:#0D1013; --line:rgba(255,255,255,.10);
+  --fg:#EDEFF2; --muted:#8C949E;
+  --blue:#2F7BFF; --blue-d:#0B3A8C; --amber:#FFB020;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:'Archivo',system-ui,sans-serif;font-weight:500;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1280px,92vw);margin:0 auto}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+h1,h2,h3{font-weight:900;letter-spacing:-.03em;line-height:.95;text-transform:uppercase}
+
+/* demo bar */
+.demobar{position:fixed;bottom:0;left:0;right:0;z-index:90;background:var(--amber);color:#1A1200;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.55rem 1rem;text-align:center}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:80;transition:.35s;border-bottom:1px solid transparent}
+header.stuck{background:rgba(7,8,10,.82);backdrop-filter:blur(14px);border-color:var(--line)}
+.nav{display:flex;align-items:center;gap:2.5rem;height:84px}
+.brand{font-weight:900;font-size:1.6rem;letter-spacing:-.06em;display:flex;align-items:baseline;gap:.5rem}
+.brand span{width:9px;height:9px;background:var(--blue);border-radius:50%;box-shadow:0 0 18px var(--blue)}
+nav.links{display:flex;gap:1.9rem;margin-left:auto;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+nav.links a{opacity:.72;transition:.2s;position:relative;padding:.2rem 0}
+nav.links a:hover{opacity:1;color:var(--blue)}
+.cta{border:1px solid var(--line);padding:.7rem 1.3rem;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;transition:.25s;white-space:nowrap}
+.cta:hover{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.cta.solid{background:var(--blue);border-color:var(--blue);color:#fff}
+.cta.solid:hover{background:#fff;color:var(--bg)}
+.burger{display:none;margin-left:auto;font-size:1.6rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:9rem 0 4rem;overflow:hidden}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:90px 90px;mask-image:radial-gradient(ellipse 90% 70% at 70% 30%,#000,transparent 75%);opacity:.6}
+.glow{position:absolute;width:70vw;height:70vw;right:-18vw;top:-22vw;border-radius:50%;background:radial-gradient(circle,rgba(47,123,255,.22),transparent 62%);filter:blur(30px)}
+.hero-img{position:absolute;right:0;top:0;width:58%;height:100%;object-fit:cover;opacity:.32;mask-image:linear-gradient(90deg,transparent,#000 45%);filter:grayscale(.5) contrast(1.1)}
+.hero .wrap{position:relative;z-index:2}
+.eyebrow{display:flex;align-items:center;gap:.8rem;margin-bottom:2rem}
+.eyebrow i{display:block;width:46px;height:1px;background:var(--blue)}
+h1{font-size:clamp(2.9rem,8.2vw,7.4rem)}
+h1 em{font-style:normal;display:block;color:transparent;-webkit-text-stroke:1.5px rgba(237,239,242,.55)}
+.sub{max-width:46ch;margin-top:2rem;color:#C4CAD2;font-size:1.06rem;line-height:1.6;font-weight:500}
+.hero-actions{display:flex;gap:1rem;margin-top:2.6rem;flex-wrap:wrap}
+.scrollhint{margin-top:4.5rem;display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--line);padding-top:1.1rem}
+
+/* marquee */
+.marquee{border-block:1px solid var(--line);background:var(--bg2);overflow:hidden;padding:1.1rem 0}
+.mtrack{display:flex;gap:3.5rem;width:max-content;animation:slide 32s linear infinite;font-family:var(--mono);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:#6F7681}
+.mtrack b{color:var(--blue);font-weight:600}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* sections */
+section{position:relative;padding:7.5rem 0}
+.sechead{display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;margin-bottom:3.5rem}
+.sechead h2{font-size:clamp(2rem,4.6vw,3.7rem)}
+.sechead p{max-width:40ch;color:var(--muted);line-height:1.6;font-size:.98rem}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+.stat{padding:2.2rem 1.6rem;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-size:clamp(2.2rem,4.4vw,3.4rem);font-weight:900;letter-spacing:-.04em;background:linear-gradient(180deg,#fff,#7FA8FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{display:block;margin-top:.5rem}
+
+/* products */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--bg);padding:2.4rem 2rem 2.6rem;min-height:280px;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:.4s}
+.card:hover{background:var(--bg2)}
+.card:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--blue);transition:.45s}
+.card:hover:after{width:100%}
+.card .num{font-family:var(--mono);font-size:.7rem;color:var(--blue);letter-spacing:.2em}
+.card h3{font-size:1.5rem;margin:1.6rem 0 .9rem}
+.card p{color:var(--muted);font-size:.92rem;line-height:1.65;flex:1}
+.card .tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.4rem}
+.tag{font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:.3rem .6rem;color:#9AA2AC}
+.arrow{position:absolute;top:2.1rem;right:1.8rem;opacity:0;transform:translate(-8px,8px);transition:.35s;color:var(--blue);font-size:1.2rem}
+.card:hover .arrow{opacity:1;transform:none}
+
+/* split / references */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:4rem;align-items:center}
+.ref{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.ref figure{position:relative;overflow:hidden;border:1px solid var(--line)}
+.ref img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;filter:grayscale(1) contrast(1.05);transition:.6s}
+.ref figure:hover img{filter:none;transform:scale(1.04)}
+.ref figcaption{position:absolute;inset:auto 0 0 0;padding:1rem;background:linear-gradient(transparent,rgba(7,8,10,.92));font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase}
+.steps{list-style:none;counter-reset:s}
+.steps li{counter-increment:s;border-top:1px solid var(--line);padding:1.5rem 0 1.5rem 3.4rem;position:relative}
+.steps li:last-child{border-bottom:1px solid var(--line)}
+.steps li:before{content:"0" counter(s);position:absolute;left:0;top:1.55rem;font-family:var(--mono);font-size:.78rem;color:var(--blue)}
+.steps h4{font-size:1.1rem;font-weight:700;margin-bottom:.4rem;letter-spacing:-.01em}
+.steps p{color:var(--muted);font-size:.92rem;line-height:1.6}
+
+/* news */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.nitem{border:1px solid var(--line);padding:1.9rem;transition:.3s;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+.nitem:hover{border-color:var(--blue);transform:translateY(-4px)}
+.nitem time{font-family:var(--mono);font-size:.7rem;color:var(--amber);letter-spacing:.14em}
+.nitem h4{margin:.9rem 0 .6rem;font-size:1.22rem;font-weight:900;letter-spacing:-.02em;text-transform:uppercase}
+.nitem p{color:var(--muted);font-size:.9rem;line-height:1.6}
+
+/* contact */
+.contact{background:var(--bg2);border-top:1px solid var(--line)}
+.cgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.person{background:var(--bg2);padding:1.3rem}
+.person b{display:block;font-size:1rem}
+.person span{display:block;color:var(--muted);font-size:.84rem;margin-top:.2rem}
+.person a{color:var(--blue);font-family:var(--mono);font-size:.78rem}
+.form{display:grid;gap:.9rem}
+.form input,.form textarea{background:transparent;border:1px solid var(--line);padding:1rem;color:var(--fg);font-family:inherit;font-size:.95rem;width:100%}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--blue)}
+.form button{background:var(--blue);border:0;color:#fff;padding:1.1rem;font-family:var(--mono);letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;cursor:pointer;transition:.25s}
+.form button:hover{background:#fff;color:var(--bg)}
+
+footer{border-top:1px solid var(--line);padding:3rem 0 5.5rem;font-size:.86rem;color:var(--muted)}
+.frow{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
+.fnav{display:flex;gap:1.4rem;flex-wrap:wrap}
+
+.rv{opacity:1}
+
+@media(max-width:980px){
+  .pgrid,.news,.stats{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2n){border-right:0}
+  .split,.cgrid{grid-template-columns:1fr;gap:2.5rem}
+  nav.links,.nav .cta{display:none}
+  .burger{display:block}
+  .hero-img{width:100%;opacity:.16;mask-image:linear-gradient(180deg,transparent,#000)}
+}
+@media(max-width:620px){
+  .pgrid,.news,.stats,.ref,.people{grid-template-columns:1fr}
+  .stat{border-right:0;border-bottom:1px solid var(--line)}
+  section{padding:5rem 0}
+}
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap nav">
+    <a href="#" class="brand">suchy<span></span></a>
+    <nav class="links">
+      <a href="#kompetenz">Kompetenz</a>
+      <a href="#maschinen">Maschinen</a>
+      <a href="#referenzen">Referenzen</a>
+      <a href="#news">News</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a href="#kontakt" class="cta solid">Anfrage starten</a>
+    <div class="burger" onclick="document.querySelector('nav.links').style.display='flex';this.style.display='none'">≡</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="grid-bg"></div><div class="glow"></div>
+  <img class="hero-img" src="img/Referenzen-1_1.jpg" alt="Schneid-Stapelanlage">
+  <div class="wrap">
+    <div class="eyebrow"><i></i><span class="mono">Korbußen / Thüringen — seit Jahrzehnten</span></div>
+    <h1>Sonder&shy;maschinen<em>für technische Textilien</em></h1>
+    <p class="sub">Wir bauen keine Serie. Wir bauen die eine Maschine, die Ihren Prozess möglich macht — von der Konstruktion bis zur Inbetriebnahme, zu über 90 % aus eigener Fertigung.</p>
+    <div class="hero-actions">
+      <a href="#maschinen" class="cta solid">Maschinenprogramm</a>
+      <a href="#kontakt" class="cta">Projekt besprechen</a>
+    </div>
+    <div class="scrollhint">
+      <span class="mono">Entwässerung · Beschichtung · Kalander · Systemlösungen · Schneid- und Stapeltechnik</span>
+      <span class="mono">scroll ↓</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="mtrack">
+    <span>Foulard</span><b>/</b><span>Saugbalken</span><b>/</b><span>Ringsaugdüse SUVAC</span><b>/</b><span>Streichwerk</span><b>/</b><span>Pflatschwerk</span><b>/</b><span>Walzenauftragswerk</span><b>/</b><span>Kaschierkalander</span><b>/</b><span>Kalibrierwerk</span><b>/</b><span>Wickler</span><b>/</b><span>Warenspeicher</span><b>/</b><span>Längsschneiden</span><b>/</b><span>Querschneiden</span><b>/</b><span>Stapeln</span><b>/</b>
+    <span>Foulard</span><b>/</b><span>Saugbalken</span><b>/</b><span>Ringsaugdüse SUVAC</span><b>/</b><span>Streichwerk</span><b>/</b><span>Pflatschwerk</span><b>/</b><span>Walzenauftragswerk</span><b>/</b><span>Kaschierkalander</span><b>/</b><span>Kalibrierwerk</span><b>/</b><span>Wickler</span><b>/</b><span>Warenspeicher</span><b>/</b><span>Längsschneiden</span><b>/</b><span>Querschneiden</span><b>/</b><span>Stapeln</span><b>/</b>
+  </div>
+</div>
+
+<section id="kompetenz">
+  <div class="wrap">
+    <div class="sechead rv">
+      <h2>Warum Kunden<br>uns holen</h2>
+      <p>Spezialisiert auf Sonder-Textilmaschinen für die Be- und Verarbeitung vorwiegend technischer Textilien und artverwandter Produkte.</p>
+    </div>
+    <div class="stats rv">
+      <div class="stat"><b >90</b><span class="mono">% Eigenfertigung</span></div>
+      <div class="stat"><b >100</b><span class="mono">% nach Kundenwunsch</span></div>
+      <div class="stat"><b >5</b><span class="mono">Technologiefelder</span></div>
+      <div class="stat"><b >1</b><span class="mono">Ansprechpartner je Projekt</span></div>
+    </div>
+    <div class="split" style="margin-top:4.5rem">
+      <ol class="steps rv">
+        <li><h4>Auftragsgestaltung</h4><p>Gemeinsam definieren wir Prozess, Warenbahn, Leistung und Schnittstellen — bevor die erste Zeichnung entsteht.</p></li>
+        <li><h4>Konstruktion</h4><p>Maschinen- und steuerungstechnische Auslegung im Haus, abgestimmt auf Ihre Halle und Ihre Vorprodukte.</p></li>
+        <li><h4>Fertigung</h4><p>Höchste Fertigungstiefe heißt: kontrollierbar, steuerbar, terminsicher. Keine Blackbox beim Zulieferer.</p></li>
+        <li><h4>Inbetriebnahme &amp; Übergabe</h4><p>Sie verfolgen den Entstehungsprozess, prüfen, korrigieren. Am Ende übernehmen Sie Ihre Maschine.</p></li>
+      </ol>
+      <div class="ref rv">
+        <figure><img src="img/Referenzen-1_1.jpg" alt="Schneid-Stapelanlage"><figcaption>Schneid-Stapelanlage</figcaption></figure>
+        <figure><img src="img/Referenzen-2_1.jpg" alt="Komprimierkalander"><figcaption>Komprimierkalander</figcaption></figure>
+        <figure style="grid-column:span 2"><img src="img/Referenzen-2_1.jpg" style="aspect-ratio:21/9" alt="Anlagenbau"><figcaption>Sonderanlagen · Automobilzulieferindustrie</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="maschinen" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sechead rv">
+      <h2>Maschinen&shy;programm</h2>
+      <p>Fünf Technologiefelder, beliebig kombinierbar zur kompletten Linie.</p>
+    </div>
+    <div class="pgrid rv">
+      <a class="card" href="#kontakt"><span class="num">01</span><span class="arrow">↗</span><h3>Entwässerung</h3><p>Flüssigkeit raus, bevor sie Energie kostet. Mechanische Entwässerung für breite Warenbahnen.</p><div class="tags"><span class="tag">Foulard</span><span class="tag">Saugbalken</span><span class="tag">Ringsaugdüse SUVAC</span></div></a>
+      <a class="card" href="#kontakt"><span class="num">02</span><span class="arrow">↗</span><h3>Beschichtung</h3><p>Definierter Auftrag von Pasten, Dispersionen und Schmelzen — reproduzierbar über die gesamte Breite.</p><div class="tags"><span class="tag">Streichwerk</span><span class="tag">Pflatschwerk</span><span class="tag">Walzenauftragswerk</span></div></a>
+      <a class="card" href="#kontakt"><span class="num">03</span><span class="arrow">↗</span><h3>Kalander</h3><p>Kaschieren, laminieren, kalibrieren. Auch mobil, auch mit großer Walzenbreite.</p><div class="tags"><span class="tag">Kaschier- &amp; Laminierkalander</span><span class="tag">Kalibrierwerk</span></div></a>
+      <a class="card" href="#kontakt"><span class="num">04</span><span class="arrow">↗</span><h3>Systemlösungen</h3><p>Wenn Standard nicht passt: Wickler, Warenspeicher und komplette Sonderanlagen als eine Einheit.</p><div class="tags"><span class="tag">Wickler</span><span class="tag">Warenspeicher</span><span class="tag">Sonderanlagen</span></div></a>
+      <a class="card" href="#kontakt"><span class="num">05</span><span class="arrow">↗</span><h3>Schneid- &amp; Stapeltechnik</h3><p>Längs, quer, gestapelt — automatisiert bis zur fertigen Palette, inklusive Steuerungstechnik.</p><div class="tags"><span class="tag">Längsschneiden</span><span class="tag">Querschneiden</span><span class="tag">Stapeln</span></div></a>
+      <a class="card" href="#kontakt" style="background:linear-gradient(135deg,var(--blue-d),var(--bg))"><span class="num" style="color:#fff">06</span><span class="arrow">↗</span><h3>Ihre Aufgabe</h3><p style="color:#D6E2FF">Sie haben einen Prozess, für den es keine Maschine gibt? Genau dafür sind wir da.</p><div class="tags"><span class="tag" style="border-color:rgba(255,255,255,.4);color:#fff">Anfrage senden →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section id="referenzen">
+  <div class="wrap">
+    <div class="sechead rv"><h2>Referenzen</h2><p>Zwei Beispiele aus der Praxis, stellvertretend für Anlagen in ganz Europa.</p></div>
+    <div class="split rv">
+      <div>
+        <span class="mono">Automobilzulieferindustrie</span>
+        <h3 style="font-size:clamp(1.6rem,3vw,2.4rem);margin:1rem 0 1.2rem">Schneid-Stapelanlage<br>als Spezialanfertigung</h3>
+        <p style="color:var(--muted);line-height:1.7;max-width:52ch">Ein Beweis für die Leistungsfähigkeit beim Umsetzen innovativer Herausforderungen: eine anspruchsvolle maschinen- und steuerungstechnische Lösung einer automatisch arbeitenden Schneid-Stapelanlage für einen Automobilzulieferer.</p>
+        <div style="margin-top:2rem"><a href="#kontakt" class="cta">Ähnliches Projekt? Sprechen wir.</a></div>
+        <div style="margin-top:3rem;border-top:1px solid var(--line);padding-top:2rem">
+          <span class="mono">Komprimierkalander</span>
+          <p style="color:var(--muted);line-height:1.7;max-width:52ch;margin-top:.8rem">Wozu früher mehrere Baugruppen und Maschinen nötig waren, leistet diese Anlage in einer kompakten Einheit: chronologisch abgestimmte Abläufe, weniger Zwischenschritte, weniger Produktionsfläche, weniger Arbeitszeit.</p>
+        </div>
+      </div>
+      <figure style="border:1px solid var(--line);overflow:hidden"><img src="img/Referenzen-1_1.jpg" alt="Referenz" style="width:100%;display:block;aspect-ratio:1/1;object-fit:cover"></figure>
+    </div>
+  </div>
+</section>
+
+<section id="news" style="background:var(--bg2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sechead rv"><h2>Aktuelles</h2><p>Was gerade die Halle verlässt.</p></div>
+    <div class="news rv">
+      <article class="nitem"><time>03 / 2026</time><h4>Digitaldrucker</h4><p>Lieferung eines single-pass Digitaldruckers zur Integration in eine bestehende Linie.</p></article>
+      <article class="nitem"><time>01 / 2026</time><h4>Beschichtungsanlage</h4><p>Entwicklung und Lieferung einer Laborbeschichtungsanlage für Versuchsreihen im Kleinformat.</p></article>
+      <article class="nitem"><time>10 / 2025</time><h4>Kalander</h4><p>Lieferung eines mobilen Komprimierkalanders mit großer Walzenbreite.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt" class="contact">
+  <div class="wrap cgrid">
+    <div class="rv">
+      <h2 style="font-size:clamp(2rem,4.4vw,3.4rem)">Reden wir über<br>Ihre Warenbahn.</h2>
+      <p style="color:var(--muted);margin:1.4rem 0 2.4rem;max-width:44ch;line-height:1.7">Suchy Textilmaschinenbau GmbH · Heidelbergstraße 13 · 07554 Korbußen<br>Tel. +49 36602 13 40 · info@suchy-textil.de</p>
+      <div class="people">
+        <div class="person"><b>Gunnar Suchy</b><span>Geschäftsführer</span><a href="tel:+493660213412">+49 36602 134-212</a></div>
+        <div class="person"><b>Dirk Franke</b><span>Verkauf</span><a href="tel:+4936602134215">+49 36602 134-215</a></div>
+        <div class="person"><b>Mario Förster</b><span>Einkauf</span><a href="tel:+4936602134217">+49 36602 134-217</a></div>
+        <div class="person"><b>Rocco Herzog</b><span>Konstruktion</span><a href="tel:+4936602134221">+49 36602 134-221</a></div>
+      </div>
+    </div>
+    <form class="form rv" onsubmit="event.preventDefault();this.innerHTML='<p class=mono style=color:var(--blue)>Demo — Formular ist nicht aktiv.</p>'">
+      <span class="mono">Anfrage</span>
+      <input placeholder="Unternehmen" required>
+      <input placeholder="Name" required>
+      <input type="email" placeholder="E-Mail" required>
+      <textarea rows="5" placeholder="Material, Warenbreite, Prozessschritt …"></textarea>
+      <button>Anfrage senden</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap frow">
+    <div class="brand" style="font-size:1.3rem">suchy<span></span></div>
+    <div class="fnav mono"><a href="#kompetenz">Unternehmen</a><a href="#maschinen">Produkte</a><a href="#referenzen">Referenzen</a><a href="#news">News</a><a href="#">Downloads</a><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
+    <span class="mono">© Suchy Textilmaschinenbau GmbH</span>
+  </div>
+</footer>
+
+<div class="demobar">Designstudie / Demo — kein offizieller Auftritt der Suchy Textilmaschinenbau GmbH · erstellt von Codext</div>
+
+<script>
+const hd=document.getElementById('hd');
+addEventListener('scroll',()=>hd.classList.toggle('stuck',scrollY>40));
+</script>
+</body>
+</html>
